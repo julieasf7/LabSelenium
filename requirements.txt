@@ -1,3 +1,4 @@
 pytest
 selenium
 behave
+behave-html-formatter

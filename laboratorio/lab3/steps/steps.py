@@ -5,21 +5,29 @@ from selenium.webdriver.common.alert import Alert
 from selenium.common.exceptions import NoAlertPresentException
 from selenium.webdriver.common.keys import Keys
 import time
+import logging
 
+# Configurar logging para registrar los resultados de las pruebas
+logging.basicConfig(filename="test_results.log", level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 @given('I am on the Juice Shop search page')
 def step_given_search_page(context):
-    #context.driver = webdriver.Firefox()  # Asegúrate de tener el geckodriver configurado
-    context.driver = webdriver.Chrome() 
+    context.driver = webdriver.Chrome()  # Puedes cambiarlo a Firefox si lo prefieres
     context.driver.get("https://juice-shop.herokuapp.com/#/search")
-    
+
     # Cerrar PopUp
     time.sleep(2)
-    close_button = context.driver.find_element(By.CLASS_NAME, 'close-dialog')
-    close_button.click()
+    try:
+        close_button = context.driver.find_element(By.CLASS_NAME, 'close-dialog')
+        close_button.click()
+        logging.info("Popup cerrado exitosamente.")
+    except Exception as e:
+        logging.warning(f"No se pudo cerrar el popup: {e}")
 
 @when('I enter the payload "{payload}" into the search box')
 def step_when_enter_payload(context, payload):
+    context.payload = payload  # Guardamos el payload en el contexto para su uso en la verificación
+
     search_box = context.driver.find_element(By.ID, 'searchQuery')
     search_box.click()
 
@@ -33,12 +41,12 @@ def step_then_see_alert(context):
     try:
         alert = Alert(context.driver)
         alert_text = alert.text
-        assert "XSS" in alert_text, f"Expected 'XSS' but got {alert_text}"
+        assert "XSS" in alert_text, f"Expected 'XSS' but got '{alert_text}'"
 
-        print("XSS successfully executed!")
-        alert.accept()  # Acepta la alerta
-    except NoAlertPresentException as e:
-        # Genera un fallo explícito si no aparece la alerta
-        raise AssertionError("No alert")
+        logging.info(f"XSS detectado con el payload: {context.payload}")
+        alert.accept()  # Cierra la alerta
+    except NoAlertPresentException:
+        logging.error(f"No se detectó XSS con el payload: {context.payload}")
+        raise AssertionError("No alert detected")
     finally:
         context.driver.quit()
