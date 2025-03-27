@@ -30,6 +30,14 @@ Este laboratorio proporciona un entorno de pruebas automatizadas utilizando Sele
     ```
 
 ### 🌍 Configurar el Driver de Selenium
+> [!IMPORTANT]
+> Desde Selenium 4.6, no es obligatorio descargar manualmente los drivers de Chrome o Firefox. Selenium Manager detectará el navegador instalado y descargará automáticamente el driver adecuado.
+>* Sin embargo, en algunos casos aún puede ser necesario:
+>* Si usas una versión antigua de Selenium (<4.6).
+>* Si necesitas una versión específica del WebDriver.
+>* Si trabajas en un entorno sin conexión a internet.
+>* Si Selenium Manager no detecta correctamente tu navegador.
+  
 #### 🔹Opción 1: Firefox (Recomendado)
 1. Descargar Geckodriver desde la página oficial:
     - Descargar [Geckodriver](https://github.com/mozilla/geckodriver/releases)
