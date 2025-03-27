@@ -46,11 +46,6 @@ Este laboratorio proporciona un entorno de pruebas automatizadas utilizando Sele
 2. Extraer el archivo y moverlo a una ubicación accesible:
     - Se recomienda guardar el driver en la carpeta drivers/ dentro del proyecto.
 
-3. Verificar la instalación ejecutando:
-    ```
-    geckodriver --version
-    ```
-
 #### 🔹 Opción 2: Google Chrome
 1. Descargar Chromedriver desde la página oficial:
     - Descargar [ChromeDriver](https://developer.chrome.com/docs/chromedriver/downloads?hl=es-419)
