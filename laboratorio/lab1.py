@@ -7,4 +7,4 @@ def test_juice_shop_title(driver):
     assert driver.title.strip() != "", "El título de la página está vacío"
 
     # Capturar pantalla
-    driver.save_screenshot("imagenes/lab1.png")
+    driver.save_screenshot("../imagenes/lab1.png")
