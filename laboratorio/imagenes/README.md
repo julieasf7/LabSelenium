@@ -1,0 +1,1 @@
+Carpeta para almacenar las imagenes que se generen durante las pruebas
