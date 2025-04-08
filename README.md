@@ -46,10 +46,19 @@ Este laboratorio proporciona un entorno de pruebas automatizadas utilizando Sele
 2. Extraer el archivo y moverlo a una ubicación accesible:
     - Se recomienda guardar el driver en la carpeta drivers/ dentro del proyecto.
 
+3. Configurar el driver
+    - (Opcion 1) Tomar la ruta donde se almacenó el driver y agregarla a las variables de entorno del sistema (PATH), para que pueda ser detectado automáticamente por Selenium.
+    - (Opcion 2) Modificar el archivo conftest.py, descomentando e incluyendo manualmente la ruta del driver en el parámetro executable_path. [Ver codigo](https://github.com/julieasf7/LabSelenium/blob/28cd39d53d669caee77627ce24ae7dbbfdecf6b7/laboratorio/conftest.py#L23C15-L23C80)
+  
+
 #### 🔹 Opción 2: Google Chrome
 1. Descargar Chromedriver desde la página oficial:
     - Descargar [ChromeDriver](https://developer.chrome.com/docs/chromedriver/downloads?hl=es-419)
     - Asegurarte de que la versión sea compatible con tu navegador.
 
 2. Guardar el ejecutable en una ruta accesible.
-     - Se recomienda guardar el driver en la carpeta drivers/ dentro del proyecto.
+    - Se recomienda guardar el driver en la carpeta drivers/ dentro del proyecto.
+       
+3. Configurar el driver
+    - (Opcion 1) Tomar la ruta donde se almacenó el driver y agregarla a las variables de entorno del sistema (PATH), para que pueda ser detectado automáticamente por Selenium.
+    - (Opcion 2) Modificar el archivo conftest.py, descomentando e incluyendo manualmente la ruta del driver en el parámetro executable_path. [Ver codigo](https://github.com/julieasf7/LabSelenium/blob/28cd39d53d669caee77627ce24ae7dbbfdecf6b7/laboratorio/conftest.py#L19C15-L19C80)
